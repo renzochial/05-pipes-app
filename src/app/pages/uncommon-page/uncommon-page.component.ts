@@ -10,6 +10,7 @@ import {
   TitleCasePipe,
   AsyncPipe,
  } from '@angular/common';
+import { interval, tap, map } from 'rxjs';
 
 const client1 = {
   name: 'renzo',
@@ -92,10 +93,15 @@ export default class UncommonPageComponent {
   //Async Pipe
   promiseValue: Promise<string> = new Promise((resolve, reject) => {
     setTimeout(()=>{
-      reject('Tenemos un error en la data')
-      //resolve('Tenemos data en al promesa')
+      //reject('Tenemos un error en la data')
+      resolve('Tenemos data en al promesa')
       console.log('Promesa finalizada')
     }, 3500);
-  })
+  });
+
+  myObservableTimer = interval(2000).pipe(
+    map((value)=> value + 1),
+    tap((value)=> console.log('tap: ', value))
+  );
 
 }
