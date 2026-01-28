@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CardComponent } from '../../components/card/card.component';
-import { I18nPluralPipe, I18nSelectPipe } from '@angular/common';
+import { I18nPluralPipe, I18nSelectPipe, SlicePipe } from '@angular/common';
 
 const client1 = {
   name: 'renzo',
@@ -19,7 +19,7 @@ const client2 = {
 
 @Component({
   selector: 'app-uncommon-page.component',
-  imports: [CardComponent, I18nSelectPipe, I18nPluralPipe],
+  imports: [CardComponent, I18nSelectPipe, I18nPluralPipe, SlicePipe],
   templateUrl: './uncommon-page.component.html',
 })
 export default class UncommonPageComponent {
